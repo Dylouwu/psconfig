@@ -71,6 +71,11 @@ Set-Alias -Name gst -Value Stash-Git -Option AllScope -Scope Global -Force
 
 function global:Rebase-Git { git rebase $args }
 Set-Alias -Name grb -Value Rebase-Git -Option AllScope -Scope Global -Force
+
+# LazyGit alias
+function global:Open-LazyGit { lazygit $args }
+Set-Alias -Name g -Value Open-LazyGit -Option AllScope -Scope Global -Force
+
 #f45873b3-b655-43a6-b217-97c00aa0db58 PowerToys CommandNotFound module
 
 Import-Module -Name Microsoft.WinGet.CommandNotFound
