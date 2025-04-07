@@ -9,15 +9,15 @@ $key = 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont'
 
 function prompt {
     $esc = [char]27
-    $purple = "$esc[38;2;148;139;195m"  # Your specified color #948bc3
-    $reset = "$esc[0m"                  # Reset colors
+    $customPink = "$esc[38;2;255;82;241m"  # Your original pink color #ff52f1
+    $reset = "$esc[0m"                     # Reset colors
     
     # Get the current path
     $currentPath = (Get-Location).Path
     
     # First convert the path, then apply color to the whole thing
     $currentPath = $currentPath -replace [regex]::Escape($env:USERPROFILE), "~"
-    $currentPath = "$purple$currentPath$reset"
+    $currentPath = "$customPink$currentPath$reset"
     
     $gitBranch = ''
     if (Test-Path .git) {
@@ -26,7 +26,7 @@ function prompt {
             $gitBranch = " ($gitBranch)"
         }
     }
-    "$currentPath$gitBranch$purple > $reset"
+    "$currentPath$gitBranch$customPink > $reset"
 }
 
 # Git aliases
